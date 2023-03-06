@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style type="text/css">
+		.blogForm{
+			width: 50%;
+			background: yellow;
+			margin: auto;  /*to move to the center*/
+			padding: 30px 15px;
+			box-shadow: 3px 3px 10px #999, -3px -3px 10px #999;
+			border-radius: 30px;
+			display: none;
+			margin-bottom: 10px;
+		}
+
+		body,button,input,textarea{
+			font-family: arial;
+		}
+
+		.blogForm h1{
+			text-align: center;
+
+		}		
+
+		.blogForm input{
+			width: 96%;
+			height: 25px;
+			margin-bottom: 10px;
+		}
+
+		.blogForm textarea{
+			width: 96%;
+			margin-bottom: 10px;
+		}
+
+		button{
+			background: #969;
+			color: #fff;
+			font-size: 14px;
+			padding: 5px 10px;
+			border: 5px solid #777;
+			border-radius: 20px;
+
+		}
+		.start{
+			top: 20px;
+			left: 20px;
+			position: absolute;
+		}
+		.blog{
+			justify-content: center;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.blog div{
+			width: 25%;
+			margin: 10px;
+			box-shadow: 3px 3px 10px #ddd, -3px -3px 10px #ddd;
+			padding: 10px;
+
+		}
+
+		.blog h3{
+			text-align: center;
+		}
+		.blog p{
+			text-align: justify;
+			line-height: 25px;
+			color: #444;
+		}
+		.blog b{
+			float: right;
+			font-size: 20px;
+			cursor: pointer;  /*to change from cursor to pointer*/
+		}
+
+	</style>
+</head>
+<body>
+	<div class="blogForm">
+		<h1>Blog Form</h1>
+		<input type="" name="" placeholder="Enter Title" class="input">
+		<textarea rows="8" placeholder="Enter Description" class="textarea"></textarea>
+		<button class="create">Create</button>
+	</div>
+
+	<button class="start">Start</button>
+	<div class="blog">
+	
+	</div>
+
+	<script type="text/javascript">
+	$('.start').click(function(){
+		$('.blogForm').toggle('slow');
+	});
+
+	$('.create').click(function(){
+		var title=$('input').val();
+		var description=$('textarea').val();
+		$('.blog').append('<div><b>&times;</b><h3>'+title+'</h3><p>'+description+'</div>');
+		
+		$('input,textarea').val("");
+		$('b').click(function(){
+		$(this).parent().hide(); // this refer to the selector
+		});
+
+	});
+
+
+
+	</script>
+</body>
+</html>
